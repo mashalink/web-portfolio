@@ -1,0 +1,20 @@
+.status-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+
+.status-buttons button {
+  flex: 1;
+  margin: 0 0.2rem;
+  padding: 0.4rem 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.status-buttons button:hover {
+  transform: scale(1.05);
+}

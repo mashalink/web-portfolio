@@ -1,0 +1,31 @@
+.order-card {
+  background-color: var(--clr-card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 300px;
+  border: 1px solid var(--clr-light-gray);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.order-card h3 {
+  margin-top: 0;
+  color: var(--clr-primary);
+}
+
+.order-card p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.order-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.2rem 1rem;
+}
+
+.order-card li {
+  line-height: 1.4;
+}
