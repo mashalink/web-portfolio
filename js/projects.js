@@ -39,56 +39,55 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Pancake Order Page",
         description:
           "Interactive builder for custom pancakes: pick base, toppings and extras, delivery options, live price calculation, modal order summary, and persistent save to localStorage with unique ID. Built with HTML/CSS and ES6 modules; responsive UI and smooth micro-interactions.",
-        link: "projects/Pancakes/order/index.html",
+        link: "./projects/Pancakes/order/index.html",
       },
       {
         title: "Pancake Kitchen View",
         description:
           "Chef/admin dashboard that loads saved orders, shows color-coded statuses (waiting/ready/delivered), and lets you update them inline. Clean layout, responsive styling, and clear state indicators for quick order triage.",
-        link: "projects/Pancakes/kitchen/index.html",
+        link: "./projects/Pancakes/kitchen/index.html",
       },
       {
         title: "Business College Landing",
         description:
           "Clean landing page inspired by BC Helsinki Full Stack program: hero with CTA, course summary with topics (HTML, CSS, JS, React, PHP, DBs, Git, deployment, responsive, security), official color palette, Google Fonts, nav and social footer.",
-        link: "projects/BC/index.html",
+        link: "./projects/BC/index.html",
       },
       {
         title: "FlexFest",
         description:
           "Flexbox & Grid layout practice: header/nav, gradient hero, multi-day program cards, ticket tiers with VIP brought forward via order:-1, location block with map, image gallery on CSS Grid, and responsive tweaks via media queries.",
-        link: "projects/Flex-projecti/flexfest.html",
+        link: "./projects/Flex-projecti/flexfest.html",
       },
       {
         title: "Two Truths and a Lie (Icebreak)",
         description:
           "Tiny party game for 3 players: enter names and 3 statements (2 true, 1 lie), then quiz mode with instant feedback, scoring, and replay. Vanilla JS handles validation, flow, and UI state with accessible, colorful styling.",
-        link: "projects/Icebreak/index.html",
+        link: "./projects/Icebreak/index.html",
       },
       {
         title: "Lomake",
         description:
           "Newsletter-style form demo with client-side validation: first/last name, email, password rules (length, uppercase, number), confirm match, ARIA-described errors, success toast, and mobile-friendly layout with CSS variables and smooth hovers.",
-        link: "projects/Lomake/index.html",
+        link: "./projects/Lomake/index.html",
       },
       {
         title: "Magic 8 Ball",
         description:
           "Animated JS toy: click to shake, then display one of 20 random answers inside a glowing ‘window’, auto-reset to classic “8”. CSS keyframes (shake/idle/fade), gradients, shadows; ignores empty input with gentle prompts.",
-        link: "projects/Magic_Ball/index.html",
+        link: "./projects/Magic_Ball/index.html",
       },
       {
         title: "ATM Simulator",
         description:
           "PIN-gated (2003) mini banking UI: login, see balance, deposit/withdraw with numeric filtering, overdraft protection, instant updates, and clear error states — all without page reload. Light, pastel UI with Flexbox.",
-        link: "projects/Pankkiautomaatti/index.html",
+        link: "./projects/Pankkiautomaatti/index.html",
       },
       {
         title: "Little Zoo",
         description:
           "Playful mini-CRUD for animals: list by type, live search, type filter, add/remove entries, add new types, A–Z sorting, and visual highlight for newly added items. Card-style UI with responsive controls.",
-        // >>> ЗАМЕНИ путь на реальный без ä <<<
-        link: "projects/Pikku_elantarha/index.html",
+        link: "./projects/Pikku_elantarha/index.html",
       },
     ],
     ru: [
