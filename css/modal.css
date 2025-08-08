@@ -1,0 +1,115 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1002;
+}
+
+.modal-content {
+  width: min(92vw, 960px);
+  max-height: 90vh;
+  overflow: hidden;
+  background: var(--modal-bg, #fff);
+  color: var(--text-color, #000);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  padding: 1rem;
+  box-sizing: border-box;
+  --frame-bg: #f7f2ec;
+  --action-bg: #f7f2ec;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+.modal-inner {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-height: calc(90vh - 4rem);
+  overflow: auto;
+}
+
+.preview-frame {
+  background: var(--frame-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.preview-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  max-height: min(60vh, 600px);
+  object-fit: contain;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.modal-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal-info p {
+  margin: 0 0 1rem 0;
+  padding: 0 2rem 0 2rem;
+  font: 400 1rem/1.55 "Plus Jakarta Sans", sans-serif;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal-button {
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 0;
+  background: var(--action-bg);
+  color: inherit;
+  display: inline-flex;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+body.night-theme .modal-content {
+  --modal-bg: #14141a;
+  --text-color: #f6f6f6;
+  --frame-bg: rgb(255, 253, 251);
+  --action-bg: #1e1e28;
+}
+
+@media (min-width: 800px) {
+  .modal-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}

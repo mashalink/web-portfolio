@@ -1,0 +1,59 @@
+.hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center -150px;
+  transition: background-image 0.8s ease;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  color: inherit;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 400;
+}
+
+body.sunset-theme .hero {
+  background-image: url("../img/hero-bg-day.png");
+}
+
+body.night-theme .hero {
+  background-image: url("../img/hero-bg-night.png");
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    max-width: 90vw;
+    color: inherit;
+  }
+  body.sunset-theme .hero {
+    background-image: url("../img/hero-bg-day.png");
+    background-position: top center;
+    background-size: cover;
+  }
+  body.night-theme .hero {
+    background-image: url("../img/hero-bg-night.png");
+    background-position: top center;
+    background-size: cover;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}

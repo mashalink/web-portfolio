@@ -1,0 +1,107 @@
+/* from Mentor */
+.attribution {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 11px;
+  padding: 15px;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: hsl(225, 100%, 94%) url("images/pattern-background-desktop.svg")
+    no-repeat top center;
+  background-size: cover;
+  font-family: "Red Hat Display", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: 100% 52vh;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  padding-bottom: 30px;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  padding: 0 0 25px 0;
+}
+
+.description {
+  padding: 15px 25px 25px 25px;
+  color: hsl(224, 23%, 55%);
+}
+
+.plan {
+  margin: 0 35px 0 35px;
+  background: hsl(225, 100%, 98%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.plan-info {
+  text-align: left;
+}
+
+.plan-info p {
+  color: hsl(224, 23%, 55%);
+  font-size: 0.9rem;
+}
+
+.change-link {
+  color: hsl(245, 75%, 52%);
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.btn {
+  margin: 0 25px 0 25px;
+  display: block;
+  background: hsl(245, 75%, 52%);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(56, 44, 255, 0.4);
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.cancel {
+  margin: 0 25px 0 25px;
+  color: hsl(224, 23%, 55%);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}

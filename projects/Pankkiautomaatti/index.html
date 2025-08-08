@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <!-- Login form -->
+      <form class="form_pin" id="Login" autocomplete="off">
+        <div class="container">
+          <input
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            id="pin"
+            required
+            aria-describedby="pinError"
+            placeholder="PIN"
+          />
+
+          <button id="buttonLogin" type="submit">Login</button>
+        </div>
+        <div id="pinError" class="error"></div>
+      </form>
+
+      <!-- Balance display -->
+      <div class="showBalance">
+        <h2 id="showHeader"></h2>
+        <h1 id="showBalance"></h1>
+      </div>
+
+      <!-- Deposit and Withdraw -->
+      <form class="form_data" autocomplete="off">
+        <label for="balance">Balance</label>
+        <div class="container">
+          <input
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            id="balance"
+            required
+            aria-describedby="BalanceError"
+            placeholder="Enter amount"
+          />
+          <button id="buttonDeposit" type="button">Deposit</button>
+        </div>
+        <div id="errorBalance" class="error"></div>
+        <label for="withdraw">Withdraw</label>
+        <div class="container">
+          <input
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            id="withdraw"
+            required
+            aria-describedby="withdrawError"
+            placeholder="Enter amount"
+          />
+          <button id="buttonWithdraw" type="button">Withdraw</button>
+        </div>
+        <div id="errorWithdraw" class="error"></div>
+      </form>
+    </main>
+  </body>
+</html>

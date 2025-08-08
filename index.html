@@ -3,20 +3,301 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-  </head>
-  <body>
-    <h1>My Web Projects</h1>
 
-    <ul>
-      <li>
-        <a href="./projects/pancakes/order/index.html">Pancake Order Page</a>
-      </li>
-      <li>
-        <a href="./projects/pancakes/kitchen/index.html"
-          >Pancake Kitchen View</a
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Personal portfolio of Maria Link — showcasing projects, skills, and contact information. Modern, responsive, and user-friendly design."
+    />
+    <meta name="author" content="Maria Link" />
+    <meta
+      name="keywords"
+      content="portfolio, web developer, HTML, CSS, JavaScript, responsive design, projects"
+    />
+
+    <!-- Open Graph / Social media -->
+    <meta property="og:title" content="Maria Link — Portfolio" />
+    <meta
+      property="og:description"
+      content="A modern portfolio showcasing my work, skills, and contact info."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mashalink.github.io/web-portfolio/"
+    />
+    <meta
+      property="og:image"
+      content="https://mashalink.github.io/web-portfolio/img/preview.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Maria Link — Portfolio" />
+    <meta
+      name="twitter:description"
+      content="A modern portfolio showcasing my work, skills, and contact info."
+    />
+    <meta
+      name="twitter:image"
+      content="https://mashalink.github.io/web-portfolio/img/preview.png"
+    />
+
+    <!-- SEO helpers: canonical link + browser theme color -->
+    <link rel="canonical" href="https://mashalink.github.io/web-portfolio/" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#0e0e18"
+    />
+
+    <title>Maria Link — Portfolio</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/burger.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+    <link rel="stylesheet" href="css/contacts.css" />
+    <link rel="stylesheet" href="css/to-top.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/x-icon"
+      href="img/icons/favicon-theme-sunset.ico"
+    />
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body class="preload">
+    <header class="header">
+      <a
+        class="logo"
+        data-i18n="logo"
+        href="./index.html"
+        aria-label="Go to homepage"
+        >ML</a
+      >
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="about">About</a></li>
+          <li><a href="#projects" data-i18n="projects">Projects</a></li>
+          <li><a href="#contact" data-i18n="contact">Contact</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button data-lang="en" aria-label="Switch to English">EN</button>
+          <button data-lang="ru" aria-label="Переключить на русский">RU</button>
+          <button data-lang="fi" aria-label="Vaihda suomeksi">FI</button>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle Theme">🌗</button>
+      </nav>
+
+      <button class="burger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="main-content sunset-theme">
+      <main>
+        <section id="hero" class="hero" aria-label="Introduction section">
+          <div class="hero-content">
+            <h1 data-i18n="hero_title">Hi, I'm Maria Link.</h1>
+            <p data-i18n="hero_subtitle">I'm a front-end developer.</p>
+          </div>
+        </section>
+
+        <section id="about" class="about-section" aria-labelledby="about-title">
+          <div class="about-content">
+            <div class="about-text">
+              <h2 id="about-title" data-i18n="about">About</h2>
+              <p data-i18n="about_text">
+                I'm a developer passionate about creating interactive and
+                responsive web applications.
+              </p>
+            </div>
+            <div class="about-photo">
+              <img
+                src="img/photo.png"
+                alt="Portrait of Maria Link, web developer"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="projects"
+          class="projects-section"
+          aria-labelledby="projects-title"
         >
-      </li>
-    </ul>
+          <h2 id="projects-title" data-i18n="projects">Projects</h2>
+
+          <div class="projects-grid" role="list">
+            <a
+              href="projects/Pancakes/order/index.html"
+              class="project-card"
+              target="_blank"
+              rel="noopener"
+              role="listitem"
+            >
+              <h3>Pancake Order Page</h3>
+              <span class="sr-only" data-i18n="opens_new_tab"
+                >(opens in a new tab)</span
+              >
+              <p>
+                Interactive builder for custom pancakes: pick base, toppings and
+                extras, delivery options, live price calculation, and order
+                summary.
+              </p>
+              <div class="preview">
+                <img
+                  src="img/screenshots/screenshot-order.png"
+                  alt="Pancake Order Page"
+                />
+              </div>
+            </a>
+
+            <a
+              href="projects/BC/index.html"
+              class="project-card"
+              target="_blank"
+              rel="noopener"
+              role="listitem"
+            >
+              <h3>Business College Landing</h3>
+              <span class="sr-only" data-i18n="opens_new_tab"
+                >(opens in a new tab)</span
+              >
+              <p>
+                Clean landing page inspired by BC Helsinki Full Stack program
+                with hero section, course summary, and official style.
+              </p>
+              <div class="preview">
+                <img
+                  src="img/screenshots/screenshot-bc.png"
+                  alt="Business College Landing"
+                />
+              </div>
+            </a>
+
+            <a
+              href="projects/Flex-projecti/flexfest.html"
+              class="project-card"
+              target="_blank"
+              rel="noopener"
+              role="listitem"
+            >
+              <h3>FlexFest</h3>
+              <span class="sr-only" data-i18n="opens_new_tab"
+                >(opens in a new tab)</span
+              >
+              <p>
+                Flexbox & Grid layout practice: responsive sections, event
+                schedule, ticket tiers, and image gallery.
+              </p>
+              <div class="preview">
+                <img
+                  src="img/screenshots/screenshot-flexfest.png"
+                  alt="FlexFest"
+                />
+              </div>
+            </a>
+          </div>
+
+          <div class="more-projects-wrapper">
+            <a href="projects.html" class="more-projects-btn">More Projects</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <section id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title" data-i18n="contact">Contact</h2>
+
+          <form id="contactForm" class="contact-card" novalidate>
+            <div class="row-2">
+              <div class="field">
+                <label for="name" data-i18n="name">Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Name"
+                  data-i18n-placeholder="name"
+                  required
+                  minlength="2"
+                  autocomplete="name"
+                  inputmode="text"
+                  aria-describedby="err-name"
+                />
+                <span id="err-name" class="error" aria-live="polite"></span>
+              </div>
+
+              <div class="field">
+                <label for="email" data-i18n="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  data-i18n-placeholder="email"
+                  required
+                  autocomplete="email"
+                  inputmode="email"
+                  aria-describedby="err-email"
+                />
+                <span id="err-email" class="error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message" data-i18n="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                data-i18n-placeholder="message"
+                rows="5"
+                required
+                minlength="10"
+                autocomplete="off"
+                spellcheck="true"
+                aria-describedby="err-msg"
+              ></textarea>
+              <span id="err-msg" class="error" aria-live="polite"></span>
+            </div>
+
+            <button
+              type="submit"
+              class="send-btn"
+              data-i18n="send"
+              aria-label="Send message"
+            >
+              Send
+            </button>
+            <div class="status" aria-live="polite"></div>
+          </form>
+        </section>
+
+        <p>© 2025 Maria Link — Created with ❤️</p>
+      </footer>
+      <button id="toTop" aria-label="Back to top">↑</button>
+    </div>
   </body>
 </html>

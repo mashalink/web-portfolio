@@ -1,0 +1,196 @@
+:root {
+  /* Colors */
+  --white: hsl(0, 0%, 100%);
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+  --brown-800: hsl(14, 45%, 36%);
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  /* Typography */
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-heading: "Young Serif", serif;
+  --fs-body: 16px;
+
+  /* Layout */
+  --radius: 16px;
+  --maxw: 740px;
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--stone-100);
+  color: var(--stone-600);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  display: grid;
+  place-items: start center;
+  padding: 24px;
+}
+
+/* Card */
+.card {
+  background: var(--white);
+  width: 100%;
+  max-width: var(--maxw);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Hero image */
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Content */
+.content {
+  padding: 32px;
+}
+
+/* Typography */
+.title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2rem, 1.3rem + 2vw, 2.75rem);
+  line-height: 1.1;
+  color: var(--stone-900);
+  margin: 12px 0 16px;
+}
+
+.lead {
+  margin: 0 0 24px;
+  font-size: 1rem;
+}
+
+/* Preparation box */
+.prep {
+  background: var(--rose-50);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 24px 0 28px;
+}
+
+.prep h2 {
+  color: var(--rose-800);
+  font-size: 1.125rem;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.prep-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.prep-list li {
+  margin: 6px 0;
+}
+
+/* Section blocks */
+.block {
+  margin: 28px 0;
+}
+.block-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--brown-800);
+  margin: 0 0 12px;
+}
+
+.list,
+.steps {
+  padding-left: 22px;
+  margin: 0;
+}
+
+.list li,
+.steps li {
+  margin: 10px 0;
+}
+
+.step-title {
+  font-weight: 700;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--stone-150);
+  margin: 28px 0;
+}
+
+/* Nutrition */
+.muted {
+  margin: 0 0 12px;
+  color: var(--stone-600);
+}
+
+.nutrition {
+  border: none;
+  border-radius: 0;
+}
+
+.nutrition .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--stone-150);
+}
+
+.nutrition .row:first-child {
+  border-top: none;
+}
+
+.nutrition .value {
+  color: var(--brown-800);
+  font-weight: 700;
+}
+
+/* Attribution */
+.attribution {
+  margin-top: 28px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--brown-800);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  body {
+    padding: 48px;
+  }
+  .content {
+    padding: 40px;
+  }
+  .prep {
+    padding: 24px 28px;
+  }
+}

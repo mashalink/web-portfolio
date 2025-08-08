@@ -1,0 +1,136 @@
+.footer {
+  background: rgb(247, 242, 236);
+  color: #111;
+  padding: 1rem 0 0 0;
+  margin-top: 1rem;
+}
+
+body.night-theme .footer {
+  background: rgb(255, 253, 251);
+  color: #111;
+}
+
+.footer > p {
+  text-align: center;
+}
+
+#contact {
+  width: 100%;
+  max-width: min(1000px, calc(100vw - 2rem));
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+#contact > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-card {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+
+.contact-card .row-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.8rem 0.9rem;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  font: inherit;
+}
+.field input:focus,
+.field textarea:focus {
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
+}
+
+.error {
+  display: block;
+  font-size: 0.85rem;
+  color: #b00020;
+  min-height: 1.1em;
+  margin-top: 0.25rem;
+}
+
+.send-btn {
+  display: block;
+  margin: 0 auto 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+body.sunset-theme .send-btn {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.night-theme .send-btn {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.send-btn:hover {
+  transform: translateY(-2px);
+}
+
+.send-btn:active {
+  transform: translateY(0);
+}
+
+.send-btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.send-btn:focus,
+.send-btn:active {
+  outline: none;
+}
+
+.alt-mail {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+.status {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-card .row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
