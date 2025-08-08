@@ -1,13 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const currentLang = localStorage.getItem("lang") || "en";
-
   const savedThemeRaw = localStorage.getItem("theme") || "sunset";
   const currentTheme = savedThemeRaw.endsWith("-theme")
     ? savedThemeRaw
     : `${savedThemeRaw}-theme`;
-
-  document.documentElement.lang = currentLang;
-
   document.body.classList.add("projects-page", currentTheme);
 
   const faviconEl = document.getElementById("favicon");
@@ -19,48 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
       ? "img/icons/favicon-theme-night.ico"
       : "img/icons/favicon-theme-sunset.ico";
   };
-
   updateFavicon();
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
       const isNight = document.body.classList.toggle("night-theme");
-
-      if (isNight) {
-        document.body.classList.remove("sunset-theme");
-      } else {
-        document.body.classList.add("sunset-theme");
-      }
+      if (isNight) document.body.classList.remove("sunset-theme");
+      else document.body.classList.add("sunset-theme");
       updateFavicon();
       localStorage.setItem("theme", isNight ? "night-theme" : "sunset-theme");
     });
-  } else {
-    console.warn("[projects.js] #theme-toggle not found");
   }
 
-  const modal = document.getElementById("projectModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalDescription = document.getElementById("modalDescription");
-  const modalLink = document.getElementById("modalLink");
-  const closeModalBtn = document.getElementById("closeModal");
-  const modalImage = document.getElementById("modalImage");
-
-  const modalReady =
-    modal && modalTitle && modalDescription && modalLink && closeModalBtn;
-  if (!modalReady) {
-    console.warn("[projects.js] Modal elements not found. Check HTML IDs.");
-  }
-
+  // --- i18n data ---
   const pageTranslations = {
-    en: { projects: "Projects" },
-    ru: { projects: "Проекты" },
-    fi: { projects: "Projektit" },
+    en: { projects: "Projects", more: "More Projects" },
+    ru: { projects: "Проекты", more: "Больше проектов" },
+    fi: { projects: "Projektit", more: "Lisää projekteja" },
   };
-
-  const projectsHeading = document.querySelector('[data-i18n="projects"]');
-  if (projectsHeading && pageTranslations[currentLang]) {
-    projectsHeading.textContent = pageTranslations[currentLang].projects;
-  }
 
   const projectData = {
     en: [
@@ -116,7 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Little Zoo",
         description:
           "Playful mini-CRUD for animals: list by type, live search, type filter, add/remove entries, add new types, A–Z sorting, and visual highlight for newly added items. Card-style UI with responsive controls.",
-        link: "projects/Pikku_el./projects/Pikku_elantarha/index.html",
+        // >>> ЗАМЕНИ путь на реальный без ä <<<
+        link: "projects/Pikku_elantarha/index.html",
       },
     ],
     ru: [
@@ -172,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Маленький зоопарк",
         description:
           "Забавный мини-CRUD по животным: список по типам, живой поиск, фильтр, добавление/удаление, создание новых типов, сортировка A–Z и визуальная подсветка новых элементов. Карточный адаптивный интерфейс.",
-        link: "projects/Pikku_eläntarha/index.html",
+        link: "projects/Pikku_elantarha/index.html",
       },
     ],
     fi: [
@@ -228,10 +200,39 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Pikku eläintarha",
         description:
           "Leikkisä eläinlistaus ja hallinta: tyypin mukaan listaus, live-haku, suodatus, lisää/poista, uusien tyyppien luonti, A–Ö-järjestys ja uusien kohteiden korostus. Korttipohjainen, responsiivinen käyttöliittymä.",
-        link: "projects/Pikku_eläntarha/index.html",
+        link: "projects/Pikku_elantarha/index.html",
       },
     ],
   };
+
+  const getLang = () => localStorage.getItem("lang") || "en";
+
+  // --- render texts (section title + "More projects" if есть на странице) ---
+  const renderTexts = (lang = getLang()) => {
+    const heading = document.querySelector('[data-i18n="projects"]');
+    if (heading)
+      heading.textContent = pageTranslations[lang]?.projects ?? "Projects";
+
+    const moreBtn = document.querySelector(".more-projects-btn");
+    if (moreBtn)
+      moreBtn.textContent = pageTranslations[lang]?.more ?? "More Projects";
+  };
+
+  renderTexts(getLang());
+  document.addEventListener("lang:change", (e) => {
+    const lang = e.detail?.lang || getLang();
+    renderTexts(lang);
+  });
+
+  // --- modal wiring ---
+  const modal = document.getElementById("projectModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalLink = document.getElementById("modalLink");
+  const closeModalBtn = document.getElementById("closeModal");
+  const modalImage = document.getElementById("modalImage");
+  const modalReady =
+    modal && modalTitle && modalDescription && modalLink && closeModalBtn;
 
   const cards = document.querySelectorAll(".projects-grid .project");
   if (!cards.length) {
@@ -239,7 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (modalReady) {
     cards.forEach((card, index) => {
       card.addEventListener("click", () => {
-        const list = projectData[currentLang] || projectData.en;
+        const lang = getLang();
+        const list = projectData[lang] || projectData.en;
         const data = list[index];
         if (!data) return;
 
@@ -262,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
       document.body.style.overflow = "";
     };
-
     closeModalBtn.addEventListener("click", closeModal);
     window.addEventListener("click", (e) => {
       if (e.target === modal) closeModal();
