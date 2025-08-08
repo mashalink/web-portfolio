@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Little Zoo",
         description:
           "Playful mini-CRUD for animals: list by type, live search, type filter, add/remove entries, add new types, A–Z sorting, and visual highlight for newly added items. Card-style UI with responsive controls.",
-        link: "projects/Pikku_eläntarha/index.html",
+        link: "projects/Pikku_el./projects/Pikku_elantarha/index.html",
       },
     ],
     ru: [
