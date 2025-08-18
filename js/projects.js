@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const savedThemeRaw = localStorage.getItem("theme") || "sunset";
-  const currentTheme = savedThemeRaw.endsWith("-theme")
-    ? savedThemeRaw
-    : `${savedThemeRaw}-theme`;
-  document.body.classList.add("projects-page", currentTheme);
+  const savedTheme = (localStorage.getItem("theme") || "sunset").replace(
+    "-theme",
+    ""
+  );
+  document.body.classList.add("projects-page", `${savedTheme}-theme`);
 
   const faviconEl = document.getElementById("favicon");
   const themeToggle = document.getElementById("theme-toggle");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isNight) document.body.classList.remove("sunset-theme");
       else document.body.classList.add("sunset-theme");
       updateFavicon();
-      localStorage.setItem("theme", isNight ? "night-theme" : "sunset-theme");
+      localStorage.setItem("theme", isNight ? "night" : "sunset");
     });
   }
 
@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Pancake Order Page",
         description:
           "Interactive builder for custom pancakes: pick base, toppings and extras, delivery options, live price calculation, modal order summary, and persistent save to localStorage with unique ID. Built with HTML/CSS and ES6 modules; responsive UI and smooth micro-interactions.",
-        link: "./projects/pancakes/order/index.html",
+        link: "./projects/Pancakes/order/index.html",
       },
       {
         title: "Pancake Kitchen View",
         description:
           "Chef/admin dashboard that loads saved orders, shows color-coded statuses (waiting/ready/delivered), and lets you update them inline. Clean layout, responsive styling, and clear state indicators for quick order triage.",
-        link: "./projects/pancakes/kitchen/index.html",
+        link: "./projects/Pancakes/kitchen/index.html",
       },
       {
         title: "Business College Landing",
