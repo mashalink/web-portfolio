@@ -161,4 +161,9 @@ Changing language updates the DOM instantly via a custom event `lang:change`.
 
 This project is licensed under the **MIT License** — see `LICENSE` for details.
 
+## 🔗 Other Projects
+
+https://mashalink.github.io/web-portfolio/projects.html
+https://github.com/mashalink/web-portfolio/tree/main/projects
+
 👩‍💻 Author: **Maria Link**
