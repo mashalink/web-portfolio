@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Pancake Order Page",
         description:
           "Interactive builder for custom pancakes: pick base, toppings and extras, delivery options, live price calculation, modal order summary, and persistent save to localStorage with unique ID. Built with HTML/CSS and ES6 modules; responsive UI and smooth micro-interactions.",
-        link: "./projects/Pancakes/order/index.html",
+        link: "./projects/pancakes/order/index.html",
       },
       {
         title: "Pancake Kitchen View",
         description:
           "Chef/admin dashboard that loads saved orders, shows color-coded statuses (waiting/ready/delivered), and lets you update them inline. Clean layout, responsive styling, and clear state indicators for quick order triage.",
-        link: "./projects/Pancakes/kitchen/index.html",
+        link: "./projects/pancakes/kitchen/index.html",
       },
       {
         title: "Business College Landing",
