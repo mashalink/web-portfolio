@@ -95,13 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Страница заказа блинов",
         description:
           "Конструктор блинов: выбор основы, топпингов и дополнений, способ доставки, живой пересчёт цены, модальное резюме заказа и сохранение в localStorage с уникальным ID. HTML/CSS + ES6-модули, адаптив и аккуратные анимации.",
-        link: "projects/Pancakes/order/index.html",
+        link: "projects/pancakes/order/index.html",
       },
       {
         title: "Кухонная панель заказов",
         description:
           "Админ-вид для повара: подхватывает сохранённые заказы, отображает цветовые статусы (ожидает/готов/доставлен) и позволяет менять их напрямую. Чистый адаптивный интерфейс и наглядные индикаторы состояний.",
-        link: "projects/Pancakes/kitchen/index.html",
+        link: "projects/pancakes/kitchen/index.html",
       },
       {
         title: "Лендинг Business College",
@@ -151,13 +151,13 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Letun tilaus",
         description:
           "Interaktiivinen letturakentaja: pohja, täytteet ja ekstrat, toimitustapa, reaaliaikainen hinnan päivitys, tilauksen yhteenveto modaalissa sekä tallennus localStorageen uniikilla ID:llä. HTML/CSS + ES6-moduulit, responsiivinen viimeistely.",
-        link: "projects/Pancakes/order/index.html",
+        link: "projects/pancakes/order/index.html",
       },
       {
         title: "Keittiön näkymä",
         description:
           "Kokin hallintanäkymä tallennettuihin tilauksiin: väreillä koodatut statukset (waiting/ready/delivered) ja suorat päivitykset. Selkeä, responsiivinen UI nopeatempoiseen työskentelyyn.",
-        link: "projects/Pancakes/kitchen/index.html",
+        link: "projects/pancakes/kitchen/index.html",
       },
       {
         title: "Business College -laskeutumissivu",
