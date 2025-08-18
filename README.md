@@ -160,3 +160,5 @@ Changing language updates the DOM instantly via a custom event `lang:change`.
 ## 📄 License
 
 This project is licensed under the **MIT License** — see `LICENSE` for details.
+
+👩‍💻 Author: **Maria Link**
