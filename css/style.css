@@ -23,20 +23,54 @@ canvas {
   display: block;
 }
 
+:root {
+  --page-gutter: clamp(1rem, 8vw, 120px);
+  --section-gap: clamp(2.5rem, 5vw, 80px);
+  --content-max-width: 1280px;
+  --page-bg: #fffaf6;
+  --header-bg: #fffaf6;
+  --nav-bg: #fffaf6;
+  --text-color: #171311;
+  --muted-color: #6e594e;
+  --eyebrow-color: #916958;
+  --accent-color: #a66a53;
+  --primary-bg: #debcaf;
+  --primary-bg-hover: #e9cfc3;
+  --primary-text: #11171a;
+  --primary-shadow: 0 12px 28px rgba(34, 24, 18, 0.18);
+  --surface-color: #f7f2ec;
+  --surface-raised: #fffdfb;
+  --surface-overlay: rgba(255, 250, 246, 0.58);
+  --surface-overlay-hover: rgba(255, 250, 246, 0.8);
+  --footer-bg: #f7f2ec;
+  --border-color: rgba(17, 23, 26, 0.1);
+  --tag-bg: rgba(166, 106, 83, 0.1);
+  --tag-text: #6b4333;
+  --card-shadow: 0 2px 8px rgba(34, 24, 18, 0.08);
+  --card-shadow-hover: 0 10px 24px rgba(34, 24, 18, 0.12);
+  --button-shadow: 0 4px 10px rgba(34, 24, 18, 0.1);
+  --floating-bg: #fffdfb;
+}
+
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   line-height: 1.6;
   font-size: 16px;
+  background-color: var(--page-bg);
+  color: var(--text-color);
   transition: background-color 0.8s ease, color 0.8s ease;
 }
 
-body.preload {
-  opacity: 0;
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
 }
 
-body.loaded {
-  opacity: 1;
-  transition: opacity 1.2s ease-in;
+main > section,
+.footer {
+  padding-inline: var(--page-gutter);
 }
 
 body.fade {
@@ -44,20 +78,52 @@ body.fade {
   transition: opacity 0.6s ease;
 }
 
-body.sunset-theme {
-  --header-bg: #ffffff;
-  --nav-bg: #ffffff;
-  --accent-color: #333333;
-  background-color: var(--header-bg);
-  color: black;
-}
-
 body.night-theme {
+  --page-bg: #11171a;
   --header-bg: #11171a;
   --nav-bg: #11171a;
-  --accent-color: #ffcc66;
-  background-color: var(--header-bg);
-  color: #ffffff;
+  --text-color: #f7f2ec;
+  --muted-color: rgba(247, 242, 236, 0.72);
+  --eyebrow-color: #debcaf;
+  --accent-color: #debcaf;
+  --primary-bg: #debcaf;
+  --primary-bg-hover: #e9cfc3;
+  --primary-text: #11171a;
+  --primary-shadow: 0 12px 28px rgba(34, 24, 18, 0.18);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-raised: rgba(255, 255, 255, 0.08);
+  --surface-overlay: rgba(17, 23, 26, 0.42);
+  --surface-overlay-hover: rgba(17, 23, 26, 0.62);
+  --footer-bg: #141c20;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --tag-bg: rgba(222, 188, 175, 0.14);
+  --tag-text: #f1d4c8;
+  --card-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.24);
+  --card-shadow-hover: inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 18px 36px rgba(0, 0, 0, 0.3);
+  --button-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+  --floating-bg: rgba(255, 255, 255, 0.08);
+  background-color: var(--page-bg);
+  color: var(--text-color);
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --section-gap: 80px;
+  }
+}
+
+.hero-link.hero-link-primary {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  border-color: transparent;
+  box-shadow: var(--primary-shadow);
+}
+
+.hero-link.hero-link-primary:hover,
+.hero-link.hero-link-primary:focus-visible {
+  background: var(--primary-bg-hover);
 }
 
 a:focus,

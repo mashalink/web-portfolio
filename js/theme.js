@@ -5,8 +5,24 @@ const favicons = {
 
 function updateFavicon(theme) {
   const faviconEl = document.getElementById("favicon");
-  if (favicons[theme]) {
+  if (faviconEl && favicons[theme]) {
     faviconEl.setAttribute("href", favicons[theme]);
+  }
+}
+
+function getSavedTheme() {
+  try {
+    return localStorage.getItem("theme") === "night" ? "night" : "sunset";
+  } catch {
+    return "sunset";
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem("theme", theme);
+  } catch {
+    // Ignore storage errors and keep the in-memory theme only.
   }
 }
 
@@ -27,14 +43,14 @@ function cycleTheme() {
     }
 
     updateFavicon(newTheme);
-    localStorage.setItem("theme", newTheme);
+    saveTheme(newTheme);
 
     body.classList.remove("fade");
   }, 600);
 }
 
 function applySavedTheme() {
-  const savedTheme = localStorage.getItem("theme") || "sunset";
+  const savedTheme = getSavedTheme();
   document.body.classList.add(`${savedTheme}-theme`);
   updateFavicon(savedTheme);
 }
@@ -42,8 +58,8 @@ function applySavedTheme() {
 document.addEventListener("DOMContentLoaded", () => {
   applySavedTheme();
 
-  document.body.classList.remove("preload");
-  document.body.classList.add("loaded");
-
-  document.querySelector(".theme-toggle").addEventListener("click", cycleTheme);
+  const themeToggle = document.querySelector(".theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", cycleTheme);
+  }
 });

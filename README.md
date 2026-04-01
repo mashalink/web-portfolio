@@ -3,37 +3,50 @@
 **Live:** https://mashalink.github.io/web-portfolio/  
 **Repo:** https://github.com/mashalink/web-portfolio
 
-A personal portfolio website built with pure **HTML, CSS, and JavaScript**.  
-The site is fully responsive, supports **English, Russian, and Finnish**, includes **light and dark themes**, and highlights selected full-stack work.
+A personal portfolio site built with plain **HTML, CSS, and JavaScript**.
+It is responsive, available in **English, Russian, and Finnish**, supports **light and dark themes**, and highlights current internship work plus selected public projects.
 
 ![Portfolio Preview](img/preview.png)
 
 ## Highlights
 
-- Personal introduction and current developer focus
+- Short hiring-oriented intro and downloadable CV in the hero
 - Responsive layout for desktop and mobile
-- Selected projects section with live demos and repository links
+- Current work card for the private EllarionTales internship project
+- Two featured public projects with live demos, repo links, and preview screenshots
+- Hero-style contact buttons in the footer for email, LinkedIn, and GitHub
 - Light and dark theme with saved preference
 - EN / RU / FI language switching
-- Contact form with client-side validation
-- Back-to-top button and burger navigation
+- Burger navigation and back-to-top button
 - Basic accessibility support and social preview metadata
+
+## Current Work
+
+### [EllarionTales](https://github.com/mashalink/EllarionTales)
+
+Private internship project for a LARP registration flow.
+
+- **Focus:** backend availability rules, character-group capacity, premium handling, transactional registration saves, and tests/CI
+- **Tech:** Node.js, Express, PostgreSQL, Sequelize, Jest
 
 ## Featured Work on the Site
 
 ### [Bloglist](https://bloglist-dunc.onrender.com/)
-Featured from the FullStack Open repository.
+
+Featured app from the FullStack Open coursework.
 
 - **Repo:** https://github.com/mashalink/FullStack
-- **Focus:** authentication, blog CRUD flows, likes, deletion, and automated testing
-- **Tech:** React, Node.js, Express, MongoDB, testing tools
+- **Demo login:** `demo` / `demopass`
+- **Focus:** React frontend with Node/Express API, persisted auth, post creation, likes, comments, delete-own-post flow, and test coverage
+- **Tech:** React, Redux, React Router, Node.js, Express, MongoDB
 
 ### [HR App](https://hrapp-1-y52h.onrender.com/)
-Employee management application with separate frontend and backend.
+
+Employee-management app with a React/Vite frontend and a Render-hosted JSON Server backend.
 
 - **Repo:** https://github.com/mashalink/hrApp
-- **Focus:** CRUD flows, forms, routing, and API integration
-- **Tech:** React, Vite, Axios, Material UI, JSON Server
+- **Focus:** browsing employees, adding and editing records, and probation/anniversary reminders in a simple admin UI
+- **Tech:** React, Vite, React Router, Axios, Material UI, JSON Server
 
 ## Project Structure
 
@@ -51,12 +64,17 @@ web-portfolio/
 │  ├─ icons/
 │  ├─ hero-bg-day.png
 │  ├─ hero-bg-night.png
-│  ├─ photo.png
+│  ├─ light.png
+│  ├─ dark.png
+│  ├─ bloglist-preview.png
+│  ├─ hrapp-preview.png
 │  └─ preview.png
+├─ assets/
+│  └─ cv/
+│     └─ Masha_Link_CV_2025.pdf
 ├─ js/
 │  ├─ burger.js
 │  ├─ card.js
-│  ├─ contacts.js
 │  ├─ i18n.js
 │  ├─ main.js
 │  ├─ theme.js
@@ -70,8 +88,8 @@ web-portfolio/
 
 - **Translations:** stored in `js/i18n.js` and `js/card.js`
 - **Theme handling:** implemented in `js/theme.js` and persisted in `localStorage`
-- **Project cards:** rendered from localized data in `js/card.js`
-- **Contact form:** validated in `js/contacts.js` and sent through `mailto:`
+- **Project cards:** rendered from localized data in `js/card.js` with preview screenshots from `img/`
+- **Contact section:** hero-style email, LinkedIn, and GitHub buttons in the footer, with the availability line above them
 
 ## Run Locally
 

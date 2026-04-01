@@ -1,158 +1,75 @@
 .footer {
-  background: rgb(247, 242, 236);
-  color: #111;
-  padding: 1rem 0 0 0;
-  margin-top: 1rem;
-}
-
-body.night-theme .footer {
-  background: #11171a;
-  color: #f7f2ec;
-}
-
-.footer > p {
-  text-align: center;
+  background: var(--footer-bg);
+  color: var(--text-color);
+  margin-top: var(--section-gap);
+  padding-top: clamp(0.65rem, 1vw, 0.95rem);
+  padding-bottom: clamp(1rem, 2vw, 1.35rem);
 }
 
 #contact {
   width: 100%;
-  max-width: min(1000px, calc(100vw - 2rem));
-  margin-inline: auto;
-  padding-inline: 1rem;
+  display: grid;
+  gap: 0.9rem;
+  justify-items: start;
+  padding-inline: 0;
 }
 
 #contact > h2 {
-  text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  text-align: left;
 }
 
-.contact-card {
-  width: 90%;
-  margin: 0 auto;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  color: inherit;
-}
-
-.contact-card .row-2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-.field label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.35rem;
-}
-
-.field input,
-.field textarea {
-  width: 100%;
-  border: 0;
-  outline: none;
-  background: #fff;
-  border-radius: 10px;
-  padding: 0.8rem 0.9rem;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-  font: inherit;
-}
-.field input:focus,
-.field textarea:focus {
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
-}
-
-body.night-theme .field input,
-body.night-theme .field textarea {
-  background: rgba(255, 255, 255, 0.06);
-  color: #f7f2ec;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-
-body.night-theme .field input::placeholder,
-body.night-theme .field textarea::placeholder {
-  color: rgba(247, 242, 236, 0.62);
-}
-
-body.night-theme .field input:focus,
-body.night-theme .field textarea:focus {
-  box-shadow: inset 0 0 0 2px rgba(222, 188, 175, 0.55);
-}
-
-.error {
-  display: block;
-  font-size: 0.85rem;
-  color: #b00020;
-  min-height: 1.1em;
-  margin-top: 0.25rem;
-}
-
-.send-btn {
-  display: block;
-  margin: 0 auto 1rem;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+.contact-availability {
+  margin: 0;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 700;
-  border-radius: 12px;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
+  color: var(--accent-color);
 }
 
-body.sunset-theme .send-btn {
-  background: #ffffff;
-  color: #000000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.contact-actions {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.95rem;
 }
 
-body.night-theme .send-btn {
-  background: rgba(255, 255, 255, 0.06);
-  color: #f7f2ec;
-  box-shadow: inset 0 0 0 1px rgba(222, 188, 175, 0.28),
-    0 4px 10px rgba(0, 0, 0, 0.22);
+.contact-intro {
+  max-width: 58ch;
+  margin: 0;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--muted-color);
 }
 
-.send-btn:hover {
-  transform: translateY(-2px);
+.footer-meta {
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-color);
 }
 
-.send-btn:active {
-  transform: translateY(0);
-}
-
-.send-btn:focus-visible {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 4px;
-}
-
-.send-btn:focus,
-.send-btn:active {
-  outline: none;
-}
-
-.alt-mail {
-  margin: 0.5rem 0 0;
-  font-size: 0.9rem;
-}
-.status {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-}
-
-body.night-theme .status {
-  color: rgba(247, 242, 236, 0.9);
-}
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #contact {
-    padding: 0 1rem;
+    gap: 0.8rem;
   }
-}
 
-@media (min-width: 768px) {
-  .contact-card .row-2 {
-    grid-template-columns: 1fr 1fr;
+  .contact-actions {
+    gap: 0.75rem;
+  }
+
+  .contact-availability,
+  .contact-intro {
+    font-size: 0.92rem;
+  }
+
+  .footer-meta {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
   }
 }

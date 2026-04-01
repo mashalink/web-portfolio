@@ -1,74 +1,113 @@
 const burgerBtn = document.querySelector(".burger");
 const nav = document.querySelector(".nav");
 const mainContent = document.querySelector(".main-content");
+const themeToggle = document.querySelector(".theme-toggle");
+const langButtons = document.querySelectorAll(".lang-toggle button");
+const mobileQuery = window.matchMedia("(max-width: 768px)");
 
-// Toggle nav menu and blur effect
-burgerBtn.addEventListener("click", () => {
-  const isActive = nav.classList.toggle("active");
-  burgerBtn.classList.toggle("active");
-  if (mainContent) {
-    mainContent.classList.toggle("blur", isActive);
+let hideTimer = null;
+
+function setNavAccessibility(isOpen) {
+  burgerBtn.setAttribute("aria-expanded", String(isOpen));
+  nav.setAttribute("aria-hidden", String(!isOpen));
+}
+
+function clearHideTimer() {
+  if (hideTimer) {
+    window.clearTimeout(hideTimer);
+    hideTimer = null;
   }
-});
+}
 
-// Close nav when a nav link is clicked
-nav.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
-    nav.classList.remove("active");
-    burgerBtn.classList.remove("active");
-    if (mainContent) {
-      mainContent.classList.remove("blur");
-    }
-  }
-});
+function openNav() {
+  clearHideTimer();
+  nav.hidden = false;
+  burgerBtn.classList.add("active");
+  mainContent?.classList.add("blur");
+  setNavAccessibility(true);
+  window.requestAnimationFrame(() => {
+    nav.classList.add("active");
+  });
+}
 
-// Close nav when clicking outside
-document.addEventListener("click", (e) => {
-  const isClickInsideNav = nav.contains(e.target);
-  const isClickOnBurger = burgerBtn.contains(e.target);
-
-  if (
-    !isClickInsideNav &&
-    !isClickOnBurger &&
-    nav.classList.contains("active")
-  ) {
-    nav.classList.remove("active");
-    burgerBtn.classList.remove("active");
-    if (mainContent) {
-      mainContent.classList.remove("blur");
-    }
-  }
-});
-
-// Close nav on browser back/forward navigation
-window.addEventListener("pageshow", () => {
+function closeNav() {
+  clearHideTimer();
   nav.classList.remove("active");
   burgerBtn.classList.remove("active");
-  if (mainContent) {
-    mainContent.classList.remove("blur");
-  }
-});
+  mainContent?.classList.remove("blur");
+  setNavAccessibility(false);
 
-// Close nav when theme is toggled in mobile
-document.querySelector(".theme-toggle").addEventListener("click", () => {
-  if (window.innerWidth <= 768 && nav.classList.contains("active")) {
-    nav.classList.remove("active");
-    burgerBtn.classList.remove("active");
-    if (mainContent) {
-      mainContent.classList.remove("blur");
-    }
-  }
-});
-
-// Close nav when a language is selected (mobile)
-document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (window.innerWidth <= 768 && nav.classList.contains("active")) {
-      nav.classList.remove("active");
-      burgerBtn.classList.remove("active");
-      if (mainContent) {
-        mainContent.classList.remove("blur");
+  if (mobileQuery.matches) {
+    hideTimer = window.setTimeout(() => {
+      if (!nav.classList.contains("active") && mobileQuery.matches) {
+        nav.hidden = true;
       }
+    }, 350);
+  } else {
+    nav.hidden = false;
+  }
+}
+
+function syncNavState() {
+  clearHideTimer();
+
+  if (mobileQuery.matches) {
+    if (nav.classList.contains("active")) {
+      nav.hidden = false;
+      setNavAccessibility(true);
+    } else {
+      nav.hidden = true;
+      setNavAccessibility(false);
+      mainContent?.classList.remove("blur");
+    }
+    return;
+  }
+
+  nav.hidden = false;
+  nav.classList.remove("active");
+  burgerBtn.classList.remove("active");
+  mainContent?.classList.remove("blur");
+  setNavAccessibility(false);
+}
+
+burgerBtn.addEventListener("click", () => {
+  if (nav.classList.contains("active")) {
+    closeNav();
+  } else {
+    openNav();
+  }
+});
+
+nav.addEventListener("click", (event) => {
+  if (event.target.tagName === "A") {
+    closeNav();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const isClickInsideNav = nav.contains(event.target);
+  const isClickOnBurger = burgerBtn.contains(event.target);
+
+  if (!isClickInsideNav && !isClickOnBurger && nav.classList.contains("active")) {
+    closeNav();
+  }
+});
+
+window.addEventListener("pageshow", syncNavState);
+window.addEventListener("resize", syncNavState);
+
+themeToggle.addEventListener("click", () => {
+  if (mobileQuery.matches && nav.classList.contains("active")) {
+    closeNav();
+  }
+});
+
+langButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (mobileQuery.matches && nav.classList.contains("active")) {
+      closeNav();
     }
   });
 });
+
+syncNavState();

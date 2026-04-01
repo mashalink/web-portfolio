@@ -7,7 +7,7 @@
     <!-- SEO -->
     <meta
       name="description"
-      content="Portfolio of Maria Link, an aspiring full-stack developer based in Espoo. Multilingual frontend work, personal projects, and a growing focus on clean full-stack web development."
+      content="Portfolio of Maria Link, a full-stack developer based in Espoo, focused on backend logic, APIs, and reliable web applications."
     />
     <meta name="author" content="Maria Link" />
     <meta
@@ -19,7 +19,7 @@
     <meta property="og:title" content="Maria Link — Portfolio" />
     <meta
       property="og:description"
-      content="Portfolio of Maria Link, an aspiring full-stack developer based in Espoo, featuring multilingual frontend work and personal full-stack projects."
+      content="Portfolio of Maria Link, a full-stack developer based in Espoo, focused on backend logic, APIs, and reliable web applications."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -36,7 +36,7 @@
     <meta name="twitter:title" content="Maria Link — Portfolio" />
     <meta
       name="twitter:description"
-      content="Portfolio of Maria Link, an aspiring full-stack developer based in Espoo, featuring multilingual frontend work and personal full-stack projects."
+      content="Portfolio of Maria Link, a full-stack developer based in Espoo, focused on backend logic, APIs, and reliable web applications."
     />
     <meta
       name="twitter:image"
@@ -48,7 +48,7 @@
     <meta
       name="theme-color"
       media="(prefers-color-scheme: light)"
-      content="#ffffff"
+      content="#fffaf6"
     />
     <meta
       name="theme-color"
@@ -84,7 +84,29 @@
     <!-- Scripts -->
     <script type="module" src="js/main.js"></script>
   </head>
-  <body class="preload">
+    <body>
+    <script>
+      (() => {
+        document.documentElement.classList.add("js");
+
+        try {
+          const theme = localStorage.getItem("theme") === "night" ? "night" : "sunset";
+          document.body.classList.add(`${theme}-theme`);
+
+          const favicon = document.getElementById("favicon");
+          if (favicon) {
+            favicon.setAttribute(
+              "href",
+              theme === "night"
+                ? "img/icons/favicon-theme-night.ico"
+                : "img/icons/favicon-theme-sunset.ico"
+            );
+          }
+        } catch (error) {
+          document.body.classList.add("sunset-theme");
+        }
+      })();
+    </script>
     <header class="header">
       <a
         class="logo"
@@ -93,9 +115,12 @@
         aria-label="Go to homepage"
         >ML</a
       >
-      <nav class="nav">
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
         <ul class="nav-links">
           <li><a href="#about" data-i18n="about">About</a></li>
+          <li>
+            <a href="#current-work" data-i18n="current_work">Current Work</a>
+          </li>
           <li><a href="#projects" data-i18n="projects">Projects</a></li>
           <li><a href="#contact" data-i18n="contact">Contact</a></li>
         </ul>
@@ -107,20 +132,53 @@
         <button class="theme-toggle" aria-label="Toggle Theme">🌗</button>
       </nav>
 
-      <button class="burger" aria-label="Toggle Navigation">
+      <button
+        class="burger"
+        aria-label="Toggle Navigation"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        type="button"
+      >
         <span></span>
         <span></span>
       </button>
     </header>
 
-    <div class="main-content sunset-theme">
+    <div class="main-content">
       <main>
         <section id="hero" class="hero" aria-label="Introduction section">
           <div class="hero-content">
-            <h1 data-i18n="hero_title">Hi, I'm Maria Link.</h1>
-            <p data-i18n="hero_subtitle">
-              Aspiring full-stack developer based in Espoo.
+            <p class="hero-eyebrow" data-i18n="hero_eyebrow">
+              Junior full-stack developer based in Espoo
             </p>
+            <h1 data-i18n="hero_title">
+              Backend-focused full-stack developer building reliable web
+              applications.
+            </h1>
+            <p class="hero-status" data-i18n="hero_status">
+              Software development student at Business College Helsinki. Open
+              to junior full-stack and backend roles.
+            </p>
+            <div class="hero-actions">
+              <a
+                href="assets/cv/Masha_Link_CV_2025.pdf"
+                class="hero-link hero-link-primary"
+                download="Maria_Link_CV_2025.pdf"
+              >
+                <span data-i18n="hero_cta_cv">Download CV</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/maria-link-4a61731a1/"
+                class="hero-link"
+                target="_blank"
+                rel="noopener"
+              >
+                <span data-i18n="hero_cta_linkedin">LinkedIn</span>
+                <span class="sr-only" data-i18n="opens_new_tab"
+                  >(opens in a new tab)</span
+                >
+              </a>
+            </div>
           </div>
         </section>
 
@@ -130,19 +188,77 @@
               <h2 id="about-title" data-i18n="about">About</h2>
               <p data-i18n="about_text">
                 I am a software development student at Business College Helsinki
-                and previously completed the Hive Helsinki curriculum. I enjoy
-                building web applications with a growing focus on full-stack
-                development, clean architecture, and practical user experience.
+                and previously completed the Hive Helsinki curriculum, where I
+                built a strong foundation in C, algorithms, and systems
+                thinking. I am currently doing an internship on EllarionTales,
+                mainly on backend business logic, run-availability rules,
+                registration flow validation, automated tests, and CI/tooling.
+                I enjoy turning complex flows into stable, testable web
+                applications that are easy to use and straightforward to
+                maintain.
               </p>
             </div>
             <div class="about-photo">
               <img
-                src="img/photo.png"
-                alt="Portrait of Maria Link, web developer"
+                class="about-avatar about-avatar-light"
+                src="img/light.png"
+                alt="Maria Link avatar"
+                loading="lazy"
+              />
+              <img
+                class="about-avatar about-avatar-dark"
+                src="img/dark.png"
+                alt="Maria Link avatar"
                 loading="lazy"
               />
             </div>
           </div>
+        </section>
+
+        <section
+          id="current-work"
+          class="current-work-section"
+          aria-labelledby="current-work-title"
+        >
+          <h2 id="current-work-title" data-i18n="current_work">
+            Current Work
+          </h2>
+
+          <article class="project-card current-work-card">
+            <p class="project-kicker" data-i18n="current_work_label">
+              Internship project
+            </p>
+            <h3 data-i18n="current_work_title">EllarionTales</h3>
+            <p class="current-work-intro" data-i18n="current_work_intro">
+              A private internship project for a LARP registration flow. I
+              mainly work on the backend, where run availability, character
+              group space, and premium handling are decided from stored data
+              and capacity rules.
+            </p>
+
+            <ul class="current-work-points">
+              <li data-i18n="current_work_point_1">
+                Run availability and balancing rules in the backend service
+              </li>
+              <li data-i18n="current_work_point_2">
+                Registration flow validation and transactional save behavior
+              </li>
+              <li data-i18n="current_work_point_3">
+                Character-group assignment and premium fallback cases
+              </li>
+              <li data-i18n="current_work_point_4">
+                Tests, CI, and tooling updates that keep the backend stable
+              </li>
+            </ul>
+
+            <ul class="project-tags current-work-tags" aria-label="Technologies">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>PostgreSQL</li>
+              <li>Sequelize</li>
+              <li>Jest</li>
+            </ul>
+          </article>
         </section>
 
         <section
@@ -154,27 +270,43 @@
 
           <div class="projects-grid" role="list">
             <article class="project-card" role="listitem">
+              <div class="project-preview project-preview-bloglist">
+                <img
+                  class="project-preview-image"
+                  src="img/bloglist-preview.png"
+                  alt="Bloglist live demo preview"
+                  loading="lazy"
+                />
+              </div>
+
               <p class="project-kicker" data-project-field="label">
-                Featured from FullStack Open
+                Featured app from FullStack Open
               </p>
               <h3 data-project-field="title">Bloglist</h3>
               <p data-project-field="description">
-                Full-stack blog application with authentication, blog creation,
-                likes, deletion, and automated tests.
+                Featured app from my FullStack Open coursework. Bloglist pairs
+                a React frontend with a Node/Express API and lets logged-in
+                users create posts, like and comment on blogs, and delete
+                their own entries. The repo also includes persisted auth,
+                Redux state, and test coverage.
+              </p>
+              <p class="project-note" data-project-field="loginNote">
+                Demo login: demo / demopass
               </p>
 
               <ul class="project-tags" aria-label="Technologies">
                 <li>React</li>
+                <li>Redux</li>
+                <li>React Router</li>
                 <li>Node.js</li>
                 <li>Express</li>
                 <li>MongoDB</li>
-                <li>Testing</li>
               </ul>
 
               <div class="project-links">
                 <a
                   href="https://bloglist-dunc.onrender.com/"
-                  class="project-link project-link-primary"
+                  class="hero-link hero-link-primary"
                   target="_blank"
                   rel="noopener"
                 >
@@ -185,7 +317,7 @@
                 </a>
                 <a
                   href="https://github.com/mashalink/FullStack"
-                  class="project-link"
+                  class="hero-link"
                   target="_blank"
                   rel="noopener"
                 >
@@ -198,19 +330,31 @@
             </article>
 
             <article class="project-card" role="listitem">
+              <div class="project-preview project-preview-hr">
+                <img
+                  class="project-preview-image"
+                  src="img/hrapp-preview.png"
+                  alt="HR App live demo preview"
+                  loading="lazy"
+                />
+              </div>
+
               <p class="project-kicker" data-project-field="label">
                 Personal project
               </p>
               <h3 data-project-field="title">HR App</h3>
               <p data-project-field="description">
-                Employee management application with separate frontend and
-                backend, focused on CRUD flows, forms, routing, and API
-                integration.
+                An employee-management app with a React/Vite frontend, Axios
+                data fetching, and a JSON Server backend deployed on Render.
+                It supports browsing employees, adding and editing records,
+                and showing probation and anniversary reminders in a simple
+                admin UI.
               </p>
 
               <ul class="project-tags" aria-label="Technologies">
                 <li>React</li>
                 <li>Vite</li>
+                <li>React Router</li>
                 <li>Axios</li>
                 <li>Material UI</li>
                 <li>JSON Server</li>
@@ -219,7 +363,7 @@
               <div class="project-links">
                 <a
                   href="https://hrapp-1-y52h.onrender.com/"
-                  class="project-link project-link-primary"
+                  class="hero-link hero-link-primary"
                   target="_blank"
                   rel="noopener"
                 >
@@ -230,7 +374,7 @@
                 </a>
                 <a
                   href="https://github.com/mashalink/hrApp"
-                  class="project-link"
+                  class="hero-link"
                   target="_blank"
                   rel="noopener"
                 >
@@ -248,73 +392,50 @@
       <footer class="footer">
         <section id="contact" aria-labelledby="contact-title">
           <h2 id="contact-title" data-i18n="contact">Contact</h2>
-
-          <form id="contactForm" class="contact-card" novalidate>
-            <div class="row-2">
-              <div class="field">
-                <label for="name" data-i18n="name">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Name"
-                  data-i18n-placeholder="name"
-                  required
-                  minlength="2"
-                  autocomplete="name"
-                  inputmode="text"
-                  aria-describedby="err-name"
-                />
-                <span id="err-name" class="error" aria-live="polite"></span>
-              </div>
-
-              <div class="field">
-                <label for="email" data-i18n="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  data-i18n-placeholder="email"
-                  required
-                  autocomplete="email"
-                  inputmode="email"
-                  aria-describedby="err-email"
-                />
-                <span id="err-email" class="error" aria-live="polite"></span>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="message" data-i18n="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Message"
-                data-i18n-placeholder="message"
-                rows="5"
-                required
-                minlength="10"
-                autocomplete="off"
-                spellcheck="true"
-                aria-describedby="err-msg"
-              ></textarea>
-              <span id="err-msg" class="error" aria-live="polite"></span>
-            </div>
-
-            <button
-              type="submit"
-              class="send-btn"
-              data-i18n="send"
-              aria-label="Send message"
+          <p class="contact-availability" data-i18n="contact_availability">
+            Open to junior full-stack and backend opportunities.
+          </p>
+          <div class="contact-actions">
+            <a
+              class="hero-link hero-link-primary"
+              href="mailto:maria8link@gmail.com"
+              aria-label="Email maria8link@gmail.com"
             >
-              Send
-            </button>
-            <div class="status" aria-live="polite"></div>
-          </form>
-        </section>
+              <span data-i18n="contact_email">Email</span>
+            </a>
 
-        <p>© 2025 Maria Link — Created with ❤️</p>
+            <a
+              class="hero-link"
+              href="https://www.linkedin.com/in/maria-link-4a61731a1/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span data-i18n="contact_linkedin">LinkedIn</span>
+              <span class="sr-only" data-i18n="opens_new_tab"
+                >(opens in a new tab)</span
+              >
+            </a>
+
+            <a
+              class="hero-link"
+              href="https://github.com/mashalink"
+              target="_blank"
+              rel="noopener"
+            >
+              <span data-i18n="contact_github">GitHub</span>
+              <span class="sr-only" data-i18n="opens_new_tab"
+                >(opens in a new tab)</span
+              >
+            </a>
+          </div>
+          <p class="contact-intro" data-i18n="contact_intro">
+            The quickest way to reach me is the email below. LinkedIn and GitHub
+            are quick links.
+          </p>
+          <p class="footer-meta" data-i18n="footer_meta">
+            © 2026 Maria Link · Built with HTML, CSS & JavaScript.
+          </p>
+        </section>
       </footer>
       <button id="toTop" aria-label="Back to top">↑</button>
     </div>
