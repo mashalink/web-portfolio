@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -53,7 +53,7 @@
     <meta
       name="theme-color"
       media="(prefers-color-scheme: dark)"
-      content="#0e0e18"
+      content="#11171A"
     />
 
     <title>Maria Link — Portfolio</title>
@@ -129,11 +129,10 @@
             <div class="about-text">
               <h2 id="about-title" data-i18n="about">About</h2>
               <p data-i18n="about_text">
-                I am a software development student at Business College
-                Helsinki and previously completed the Hive Helsinki
-                curriculum. I enjoy building web applications with a growing
-                focus on full-stack development, clean architecture, and
-                practical user experience.
+                I am a software development student at Business College Helsinki
+                and previously completed the Hive Helsinki curriculum. I enjoy
+                building web applications with a growing focus on full-stack
+                development, clean architecture, and practical user experience.
               </p>
             </div>
             <div class="about-photo">
@@ -151,82 +150,97 @@
           class="projects-section"
           aria-labelledby="projects-title"
         >
-          <h2 id="projects-title" data-i18n="projects">Projects</h2>
+          <h2 id="projects-title" data-i18n="projects">Selected Projects</h2>
 
           <div class="projects-grid" role="list">
-            <a
-              href="projects/pancakes/order/index.html"
-              class="project-card"
-              target="_blank"
-              rel="noopener"
-              role="listitem"
-            >
-              <h3>Pancake Order Page</h3>
-              <span class="sr-only" data-i18n="opens_new_tab"
-                >(opens in a new tab)</span
-              >
-              <p>
-                Interactive builder for custom pancakes: pick base, toppings and
-                extras, delivery options, live price calculation, and order
-                summary.
+            <article class="project-card" role="listitem">
+              <p class="project-kicker" data-project-field="label">
+                Featured from FullStack Open
               </p>
-              <div class="preview">
-                <img
-                  src="img/screenshots/screenshot-order.png"
-                  alt="Pancake Order Page"
-                />
-              </div>
-            </a>
-
-            <a
-              href="projects/BC/index.html"
-              class="project-card"
-              target="_blank"
-              rel="noopener"
-              role="listitem"
-            >
-              <h3>Business College Landing</h3>
-              <span class="sr-only" data-i18n="opens_new_tab"
-                >(opens in a new tab)</span
-              >
-              <p>
-                Clean landing page inspired by BC Helsinki Full Stack program
-                with hero section, course summary, and official style.
+              <h3 data-project-field="title">Bloglist</h3>
+              <p data-project-field="description">
+                Full-stack blog application with authentication, blog creation,
+                likes, deletion, and automated tests.
               </p>
-              <div class="preview">
-                <img
-                  src="img/screenshots/screenshot-bc.png"
-                  alt="Business College Landing"
-                />
-              </div>
-            </a>
 
-            <a
-              href="projects/Flex-projecti/flexfest.html"
-              class="project-card"
-              target="_blank"
-              rel="noopener"
-              role="listitem"
-            >
-              <h3>FlexFest</h3>
-              <span class="sr-only" data-i18n="opens_new_tab"
-                >(opens in a new tab)</span
-              >
-              <p>
-                Flexbox & Grid layout practice: responsive sections, event
-                schedule, ticket tiers, and image gallery.
+              <ul class="project-tags" aria-label="Technologies">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>MongoDB</li>
+                <li>Testing</li>
+              </ul>
+
+              <div class="project-links">
+                <a
+                  href="https://bloglist-dunc.onrender.com/"
+                  class="project-link project-link-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span data-project-field="liveLabel">Live Demo</span>
+                  <span class="sr-only" data-i18n="opens_new_tab"
+                    >(opens in a new tab)</span
+                  >
+                </a>
+                <a
+                  href="https://github.com/mashalink/FullStack"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span data-project-field="repoLabel">GitHub Repo</span>
+                  <span class="sr-only" data-i18n="opens_new_tab"
+                    >(opens in a new tab)</span
+                  >
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card" role="listitem">
+              <p class="project-kicker" data-project-field="label">
+                Personal project
               </p>
-              <div class="preview">
-                <img
-                  src="img/screenshots/screenshot-flexfest.png"
-                  alt="FlexFest"
-                />
-              </div>
-            </a>
-          </div>
+              <h3 data-project-field="title">HR App</h3>
+              <p data-project-field="description">
+                Employee management application with separate frontend and
+                backend, focused on CRUD flows, forms, routing, and API
+                integration.
+              </p>
 
-          <div class="more-projects-wrapper">
-            <a href="projects.html" class="more-projects-btn">More Projects</a>
+              <ul class="project-tags" aria-label="Technologies">
+                <li>React</li>
+                <li>Vite</li>
+                <li>Axios</li>
+                <li>Material UI</li>
+                <li>JSON Server</li>
+              </ul>
+
+              <div class="project-links">
+                <a
+                  href="https://hrapp-1-y52h.onrender.com/"
+                  class="project-link project-link-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span data-project-field="liveLabel">Live Demo</span>
+                  <span class="sr-only" data-i18n="opens_new_tab"
+                    >(opens in a new tab)</span
+                  >
+                </a>
+                <a
+                  href="https://github.com/mashalink/hrApp"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span data-project-field="repoLabel">GitHub Repo</span>
+                  <span class="sr-only" data-i18n="opens_new_tab"
+                    >(opens in a new tab)</span
+                  >
+                </a>
+              </div>
+            </article>
           </div>
         </section>
       </main>

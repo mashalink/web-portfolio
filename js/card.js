@@ -3,98 +3,93 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectsShortData = {
     en: [
       {
-        title: "Pancake Order Page",
+        label: "Featured from FullStack Open",
+        title: "Bloglist",
         description:
-          "Interactive builder for custom pancakes: pick base, toppings and extras, delivery options, live price calculation, and order summary.",
+          "Full-stack blog application with authentication, blog creation, likes, deletion, and automated tests.",
+        liveLabel: "Live Demo",
+        repoLabel: "GitHub Repo",
       },
       {
-        title: "Business College Landing",
+        label: "Personal project",
+        title: "HR App",
         description:
-          "Clean landing page inspired by BC Helsinki Full Stack program with hero section, course summary, and official style.",
-      },
-      {
-        title: "FlexFest",
-        description:
-          "Flexbox & Grid layout practice: responsive sections, event schedule, ticket tiers, and image gallery.",
+          "Employee management application with separate frontend and backend, focused on CRUD flows, forms, routing, and API integration.",
+        liveLabel: "Live Demo",
+        repoLabel: "GitHub Repo",
       },
     ],
     ru: [
       {
-        title: "Страница заказа блинов",
+        label: "Из FullStack Open",
+        title: "Bloglist",
         description:
-          "Конструктор блинов: выбор основы, топпингов и дополнений, способ доставки, живой пересчёт цены и резюме заказа.",
+          "Full-stack приложение для блогов с авторизацией, созданием постов, лайками, удалением и автоматизированными тестами.",
+        liveLabel: "Открыть демо",
+        repoLabel: "GitHub репозиторий",
       },
       {
-        title: "Лендинг Business College",
+        label: "Личный проект",
+        title: "HR App",
         description:
-          "Лёгкий лендинг по мотивам программы Full Stack BC Helsinki: хиро-блок, краткое описание курса и фирменный стиль.",
-      },
-      {
-        title: "FlexFest",
-        description:
-          "Практика Flexbox и Grid: адаптивные секции, расписание события, тарифы билетов и галерея.",
+          "Приложение для управления сотрудниками с отдельными frontend и backend частями, с фокусом на CRUD, формы, роутинг и интеграцию API.",
+        liveLabel: "Открыть демо",
+        repoLabel: "GitHub репозиторий",
       },
     ],
     fi: [
       {
-        title: "Letun tilaus",
+        label: "FullStack Open -projekti",
+        title: "Bloglist",
         description:
-          "Interaktiivinen letturakentaja: pohja, täytteet ja ekstrat, toimitustapa, reaaliaikainen hinnan päivitys ja yhteenveto.",
+          "Full-stack blogisovellus, jossa on kirjautuminen, blogien luonti, tykkäykset, poisto ja automatisoidut testit.",
+        liveLabel: "Avaa demo",
+        repoLabel: "GitHub-repo",
       },
       {
-        title: "Business College -laskeutumissivu",
+        label: "Oma projekti",
+        title: "HR App",
         description:
-          "Kevyt esittelysivu BC Helsingin Full Stack -ohjelman hengessä: hero, kurssin esittely ja virallinen tyyli.",
-      },
-      {
-        title: "FlexFest",
-        description:
-          "Flexbox- ja Grid-harjoitus: responsiiviset osiot, tapahtuma-aikataulu, lippupaketit ja kuvagalleria.",
+          "Työntekijöiden hallintasovellus, jossa on erillinen frontend ja backend sekä painotus CRUD-toimintoihin, lomakkeisiin, reititykseen ja API-integraatioon.",
+        liveLabel: "Avaa demo",
+        repoLabel: "GitHub-repo",
       },
     ],
   };
 
   const sectionTranslations = {
-    en: "Projects",
-    ru: "Проекты",
-    fi: "Projektit",
-  };
-  const moreBtnTranslations = {
-    en: "More Projects",
-    ru: "Больше проектов",
-    fi: "Lisää projekteja",
+    en: "Selected Projects",
+    ru: "Избранные проекты",
+    fi: "Valitut projektit",
   };
 
   function applyProjectsLang(lang) {
     const list = projectsShortData[lang] || projectsShortData.en;
 
-    // карточки
     document
       .querySelectorAll(".projects-grid .project-card")
       .forEach((card, i) => {
         const item = list[i];
         if (!item) return;
-        const h3 = card.querySelector("h3");
-        const p = card.querySelector("p");
+        const label = card.querySelector('[data-project-field="label"]');
+        const h3 = card.querySelector('[data-project-field="title"]');
+        const p = card.querySelector('[data-project-field="description"]');
+        const liveLabel = card.querySelector('[data-project-field="liveLabel"]');
+        const repoLabel = card.querySelector('[data-project-field="repoLabel"]');
+        if (label) label.textContent = item.label;
         if (h3) h3.textContent = item.title;
         if (p) p.textContent = item.description;
+        if (liveLabel) liveLabel.textContent = item.liveLabel;
+        if (repoLabel) repoLabel.textContent = item.repoLabel;
       });
 
-    // заголовок секции
-    const h2 = document.querySelector('#projects-title,[data-i18n="projects"]');
+    const h2 = document.getElementById("projects-title");
     if (h2)
       h2.textContent = sectionTranslations[lang] || sectionTranslations.en;
-
-    // кнопка "More Projects"
-    const moreBtn = document.querySelector(".more-projects-btn");
-    if (moreBtn)
-      moreBtn.textContent = moreBtnTranslations[lang] || moreBtnTranslations.en;
   }
 
-  // первичная подстановка
   applyProjectsLang(localStorage.getItem("lang") || "en");
 
-  // реагируем на смену языка из main.js
   document.addEventListener("lang:change", (e) => {
     applyProjectsLang(e.detail?.lang || "en");
   });

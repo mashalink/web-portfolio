@@ -53,8 +53,8 @@ body.sunset-theme {
 }
 
 body.night-theme {
-  --header-bg: #0e0e18;
-  --nav-bg: #0e0e18;
+  --header-bg: #11171a;
+  --nav-bg: #11171a;
   --accent-color: #ffcc66;
   background-color: var(--header-bg);
   color: #ffffff;

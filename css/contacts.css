@@ -6,8 +6,8 @@
 }
 
 body.night-theme .footer {
-  background: rgb(255, 253, 251);
-  color: #111;
+  background: #11171a;
+  color: #f7f2ec;
 }
 
 .footer > p {
@@ -63,6 +63,23 @@ body.night-theme .footer {
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18);
 }
 
+body.night-theme .field input,
+body.night-theme .field textarea {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7f2ec;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+body.night-theme .field input::placeholder,
+body.night-theme .field textarea::placeholder {
+  color: rgba(247, 242, 236, 0.62);
+}
+
+body.night-theme .field input:focus,
+body.night-theme .field textarea:focus {
+  box-shadow: inset 0 0 0 2px rgba(222, 188, 175, 0.55);
+}
+
 .error {
   display: block;
   font-size: 0.85rem;
@@ -91,9 +108,10 @@ body.sunset-theme .send-btn {
 }
 
 body.night-theme .send-btn {
-  background: #000000;
-  color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7f2ec;
+  box-shadow: inset 0 0 0 1px rgba(222, 188, 175, 0.28),
+    0 4px 10px rgba(0, 0, 0, 0.22);
 }
 
 .send-btn:hover {
@@ -121,6 +139,10 @@ body.night-theme .send-btn {
 .status {
   margin-top: 0.5rem;
   font-size: 0.95rem;
+}
+
+body.night-theme .status {
+  color: rgba(247, 242, 236, 0.9);
 }
 
 @media (max-width: 480px) {
