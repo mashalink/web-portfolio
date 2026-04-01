@@ -1,12 +1,12 @@
-// card.js
 document.addEventListener("DOMContentLoaded", () => {
   const projectsShortData = {
     en: [
       {
-        label: "Featured from FullStack Open",
+        label: "Featured app from FullStack Open",
         title: "Bloglist",
         description:
-          "Full-stack blog application with authentication, blog creation, likes, deletion, and automated tests.",
+          "Featured app from my FullStack Open coursework. Bloglist pairs a React frontend with a Node/Express API and lets logged-in users create posts, like and comment on blogs, and delete their own entries. The repo also includes persisted auth, Redux state, and test coverage.",
+        loginNote: "Demo login: demo / demopass",
         liveLabel: "Live Demo",
         repoLabel: "GitHub Repo",
       },
@@ -14,17 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
         label: "Personal project",
         title: "HR App",
         description:
-          "Employee management application with separate frontend and backend, focused on CRUD flows, forms, routing, and API integration.",
+          "An employee-management app with a React/Vite frontend, Axios data fetching, and a JSON Server backend deployed on Render. It supports browsing employees, adding and editing records, and showing probation and anniversary reminders in a simple admin UI.",
         liveLabel: "Live Demo",
         repoLabel: "GitHub Repo",
       },
     ],
     ru: [
       {
-        label: "Из FullStack Open",
+        label: "Приложение из FullStack Open",
         title: "Bloglist",
         description:
-          "Full-stack приложение для блогов с авторизацией, созданием постов, лайками, удалением и автоматизированными тестами.",
+          "Избранное приложение из курса FullStack Open. Bloglist соединяет React-фронтенд с Node/Express API и позволяет входить в систему, создавать посты, ставить лайки, оставлять комментарии и удалять свои записи. В репозитории также есть сохранённая авторизация, Redux-состояние и тесты.",
+        loginNote: "Демо-вход: demo / demopass",
         liveLabel: "Открыть демо",
         repoLabel: "GitHub репозиторий",
       },
@@ -32,17 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
         label: "Личный проект",
         title: "HR App",
         description:
-          "Приложение для управления сотрудниками с отдельными frontend и backend частями, с фокусом на CRUD, формы, роутинг и интеграцию API.",
+          "Приложение для управления сотрудниками с фронтендом на React/Vite, загрузкой данных через Axios и backend на JSON Server, развернутым на Render. Оно позволяет просматривать сотрудников, добавлять и редактировать записи, а также показывает напоминания о probation и годовщинах в простом admin-интерфейсе.",
         liveLabel: "Открыть демо",
         repoLabel: "GitHub репозиторий",
       },
     ],
     fi: [
       {
-        label: "FullStack Open -projekti",
+        label: "FullStack Open -sovellus",
         title: "Bloglist",
         description:
-          "Full-stack blogisovellus, jossa on kirjautuminen, blogien luonti, tykkäykset, poisto ja automatisoidut testit.",
+          "FullStack Open -kurssin esiin nostettu sovellus. Bloglist yhdistää React-frontendin ja Node/Express-API:n ja antaa kirjautuneiden käyttäjien luoda postauksia, tykätä ja kommentoida blogeja sekä poistaa omia kirjoituksiaan. Repossa on myös pysyvä kirjautuminen, Redux-tila ja testikattavuus.",
+        loginNote: "Demo-kirjautuminen: demo / demopass",
         liveLabel: "Avaa demo",
         repoLabel: "GitHub-repo",
       },
@@ -50,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         label: "Oma projekti",
         title: "HR App",
         description:
-          "Työntekijöiden hallintasovellus, jossa on erillinen frontend ja backend sekä painotus CRUD-toimintoihin, lomakkeisiin, reititykseen ja API-integraatioon.",
+          "Työntekijähallintasovellus React/Vite-frontendillä, Axios-datahaulla ja Renderiin julkaistulla JSON Server -backendillä. Sovelluksessa voi selata työntekijöitä, lisätä ja muokata tietueita sekä näyttää probation- ja vuosipäivämuistutuksia selkeässä admin-näkymässä.",
         liveLabel: "Avaa demo",
         repoLabel: "GitHub-repo",
       },
@@ -74,11 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const label = card.querySelector('[data-project-field="label"]');
         const h3 = card.querySelector('[data-project-field="title"]');
         const p = card.querySelector('[data-project-field="description"]');
+        const loginNote = card.querySelector('[data-project-field="loginNote"]');
         const liveLabel = card.querySelector('[data-project-field="liveLabel"]');
         const repoLabel = card.querySelector('[data-project-field="repoLabel"]');
         if (label) label.textContent = item.label;
         if (h3) h3.textContent = item.title;
         if (p) p.textContent = item.description;
+        if (loginNote && item.loginNote) loginNote.textContent = item.loginNote;
         if (liveLabel) liveLabel.textContent = item.liveLabel;
         if (repoLabel) repoLabel.textContent = item.repoLabel;
       });

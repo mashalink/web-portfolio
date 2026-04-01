@@ -1,8 +1,7 @@
-import { translations, setLanguage } from "./i18n.js";
+import { setLanguage } from "./i18n.js";
 import "./theme.js";
 import "./burger.js";
 import "./card.js";
-import "./contacts.js";
 import "./to-top.js";
 
 const savedLang = localStorage.getItem("lang") || "en";
