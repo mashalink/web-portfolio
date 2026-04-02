@@ -62,6 +62,8 @@ It checks:
 
 This keeps the repo honest without adding a build system. For a static site, that is enough to catch broken files, invalid markup, broken paths, and accidental regressions early.
 
+The `main` branch is protected by required checks.
+
 ## Run Locally
 
 No build tools are required.
