@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint JavaScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check JavaScript syntax
+        run: |
+          for file in js/*.js; do
+            node --check "$file"
+          done
+
+      - name: Run ESLint
+        run: npx --yes eslint@9 js/*.js
+
+  html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run HTML validator
+        run: npx --yes html-validate@8 index.html
+
+      - name: Validate local references and sections
+        run: |
+          node <<'EOF'
+          const fs = require('fs');
+          const path = require('path');
+
+          const root = process.cwd();
+          const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+
+          const refs = [];
+          for (const attr of ['src', 'href']) {
+            const re = new RegExp(`${attr}=["']([^"']+)["']`, 'g');
+            let match;
+            while ((match = re.exec(html)) !== null) {
+              refs.push(match[1]);
+            }
+          }
+
+          const localRefs = refs.filter((ref) => !/^(?:https?:|mailto:|#|data:|\/\/)/i.test(ref));
+          const missing = localRefs.filter((ref) => {
+            const cleanRef = ref.split('?')[0].split('#')[0];
+            return !fs.existsSync(path.resolve(root, cleanRef));
+          });
+
+          if (missing.length) {
+            console.error('Missing local references:');
+            for (const ref of missing) {
+              console.error(`- ${ref}`);
+            }
+            process.exit(1);
+          }
+
+          for (const id of ['hero', 'about', 'current-work', 'projects', 'contact']) {
+            if (!html.includes(`id="${id}"`)) {
+              console.error(`Missing section id: ${id}`);
+              process.exit(1);
+            }
+          }
+          EOF
+
+  lighthouse:
+    name: Run Lighthouse
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Lighthouse CI
+        run: npx --yes @lhci/cli@0.13.0 autorun --config=.lighthouserc.json

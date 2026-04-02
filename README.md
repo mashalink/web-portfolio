@@ -1,24 +1,22 @@
 # Maria Link — Web Portfolio
 
-**Live:** https://mashalink.github.io/web-portfolio/  
-**Repo:** https://github.com/mashalink/web-portfolio
+[Live](https://mashalink.github.io/web-portfolio/) | [Repo](https://github.com/mashalink/web-portfolio) | [![CI](https://github.com/mashalink/web-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/mashalink/web-portfolio/actions/workflows/ci.yml)
 
-A personal portfolio site built with plain **HTML, CSS, and JavaScript**.
-It is responsive, available in **English, Russian, and Finnish**, supports **light and dark themes**, and highlights current internship work plus selected public projects.
+A responsive static portfolio built with plain HTML, CSS, and JavaScript. It is available in English, Russian, and Finnish, supports light and dark themes, and highlights current internship work plus two featured public projects.
 
 ![Portfolio Preview](img/preview.png)
 
 ## Highlights
 
-- Short hiring-oriented intro and downloadable CV in the hero
-- Responsive layout for desktop and mobile
-- Current work card for the private EllarionTales internship project
-- Two featured public projects with live demos, repo links, and preview screenshots
-- Hero-style contact buttons in the footer for email, LinkedIn, and GitHub
-- Light and dark theme with saved preference
+- Hiring-oriented hero with CV download and LinkedIn
+- About section with background and current focus
+- Current Work card for the private EllarionTales internship project
+- Two featured public projects with live demos, repo links, and screenshots
+- Footer contact links for email, LinkedIn, and GitHub
 - EN / RU / FI language switching
+- Light and dark themes with saved preference
 - Burger navigation and back-to-top button
-- Basic accessibility support and social preview metadata
+- Basic accessibility and social preview metadata
 
 ## Current Work
 
@@ -27,18 +25,18 @@ It is responsive, available in **English, Russian, and Finnish**, supports **lig
 Private internship project for a LARP registration flow.
 
 - **Site:** https://ellariontales.com/
-- **Focus:** backend availability rules, character-group capacity, premium handling, transactional registration saves, and tests/CI
+- **Focus:** backend availability rules, character-group capacity, premium handling, transactional registration saves, and CI/tooling
 - **Tech:** Node.js, Express, PostgreSQL, Sequelize, Jest
 
-## Featured Work on the Site
+## Featured Projects
 
 ### [Bloglist](https://bloglist-dunc.onrender.com/)
 
-Featured app from the FullStack Open coursework.
+Featured app from FullStack Open coursework.
 
 - **Repo:** https://github.com/mashalink/FullStack
 - **Demo login:** `demo` / `demopass`
-- **Focus:** React frontend with Node/Express API, persisted auth, post creation, likes, comments, delete-own-post flow, and test coverage
+- **Focus:** React frontend with a Node/Express API, persisted auth, post creation, likes, comments, delete-own-post flow, and test coverage
 - **Tech:** React, Redux, React Router, Node.js, Express, MongoDB
 
 ### [HR App](https://hrapp-1-y52h.onrender.com/)
@@ -49,48 +47,19 @@ Employee-management app with a React/Vite frontend and a Render-hosted JSON Serv
 - **Focus:** browsing employees, adding and editing records, and probation/anniversary reminders in a simple admin UI
 - **Tech:** React, Vite, React Router, Axios, Material UI, JSON Server
 
-## Project Structure
+## CI
 
-```text
-web-portfolio/
-├─ css/
-│  ├─ about.css
-│  ├─ burger.css
-│  ├─ cards.css
-│  ├─ contacts.css
-│  ├─ hero.css
-│  ├─ style.css
-│  └─ to-top.css
-├─ img/
-│  ├─ icons/
-│  ├─ hero-bg-day.png
-│  ├─ hero-bg-night.png
-│  ├─ light.png
-│  ├─ dark.png
-│  ├─ bloglist-preview.png
-│  ├─ hrapp-preview.png
-│  └─ preview.png
-├─ assets/
-│  └─ cv/
-│     └─ Masha_Link_CV_2025.pdf
-├─ js/
-│  ├─ burger.js
-│  ├─ card.js
-│  ├─ i18n.js
-│  ├─ main.js
-│  ├─ theme.js
-│  └─ to-top.js
-├─ index.html
-├─ LICENSE
-└─ README.md
-```
+GitHub Actions runs on every push and pull request to `main`.
 
-## Main Technical Notes
+It checks:
 
-- **Translations:** stored in `js/i18n.js` and `js/card.js`
-- **Theme handling:** implemented in `js/theme.js` and persisted in `localStorage`
-- **Project cards:** rendered from localized data in `js/card.js` with preview screenshots from `img/`
-- **Contact section:** hero-style email, LinkedIn, and GitHub buttons in the footer, with the availability line above them
+- JavaScript syntax with `node --check`
+- JavaScript linting with ESLint
+- HTML structure with `html-validate`
+- local links, images, and key section ids in `index.html`
+- Lighthouse scores for performance, accessibility, best practices, and SEO
+
+This keeps the repo honest without adding a build system. For a static site, that is enough to catch broken files, invalid markup, broken paths, and accidental regressions early.
 
 ## Run Locally
 
@@ -103,19 +72,12 @@ No build tools are required.
    cd web-portfolio
    ```
 
-2. Open `index.html` in a browser, or use **VS Code Live Server** for local development.
+2. Open `index.html` in a browser, or use VS Code Live Server.
 
 ## Deployment
 
-This site is deployed through **GitHub Pages** from the repository root.
-
-## Accessibility
-
-- Semantic HTML structure
-- Focus-visible styles
-- Screen-reader-only helper text for external links
-- Language switching and theme switching without reload
+This site is deployed through GitHub Pages from the repository root.
 
 ## License
 
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE).
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
