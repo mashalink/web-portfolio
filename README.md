@@ -26,6 +26,7 @@ It is responsive, available in **English, Russian, and Finnish**, supports **lig
 
 Private internship project for a LARP registration flow.
 
+- **Site:** https://ellariontales.com/
 - **Focus:** backend availability rules, character-group capacity, premium handling, transactional registration saves, and tests/CI
 - **Tech:** Node.js, Express, PostgreSQL, Sequelize, Jest
 
