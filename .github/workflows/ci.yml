@@ -32,6 +32,9 @@ jobs:
       - name: Run ESLint
         run: npx --yes eslint@9 js/*.js
 
+      - name: Check formatting with Prettier
+        run: npx --yes prettier@3.5.3 --check README.md index.html css/*.css js/*.js .github/workflows/*.yml .htmlvalidate.json .lighthouserc.json eslint.config.js .prettierrc.json
+
   html:
     name: Validate HTML
     runs-on: ubuntu-latest

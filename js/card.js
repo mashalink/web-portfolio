@@ -76,9 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const label = card.querySelector('[data-project-field="label"]');
         const h3 = card.querySelector('[data-project-field="title"]');
         const p = card.querySelector('[data-project-field="description"]');
-        const loginNote = card.querySelector('[data-project-field="loginNote"]');
-        const liveLabel = card.querySelector('[data-project-field="liveLabel"]');
-        const repoLabel = card.querySelector('[data-project-field="repoLabel"]');
+        const loginNote = card.querySelector(
+          '[data-project-field="loginNote"]'
+        );
+        const liveLabel = card.querySelector(
+          '[data-project-field="liveLabel"]'
+        );
+        const repoLabel = card.querySelector(
+          '[data-project-field="repoLabel"]'
+        );
         if (label) label.textContent = item.label;
         if (h3) h3.textContent = item.title;
         if (p) p.textContent = item.description;

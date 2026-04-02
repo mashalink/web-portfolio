@@ -84,13 +84,14 @@
     <!-- Scripts -->
     <script type="module" src="js/main.js"></script>
   </head>
-    <body>
+  <body>
     <script>
       (() => {
         document.documentElement.classList.add("js");
 
         try {
-          const theme = localStorage.getItem("theme") === "night" ? "night" : "sunset";
+          const theme =
+            localStorage.getItem("theme") === "night" ? "night" : "sunset";
           document.body.classList.add(`${theme}-theme`);
 
           const favicon = document.getElementById("favicon");
@@ -125,11 +126,23 @@
           <li><a href="#contact" data-i18n="contact">Contact</a></li>
         </ul>
         <div class="lang-toggle">
-          <button data-lang="en" aria-label="Switch to English">EN</button>
-          <button data-lang="ru" aria-label="Переключить на русский">RU</button>
-          <button data-lang="fi" aria-label="Vaihda suomeksi">FI</button>
+          <button type="button" data-lang="en" aria-label="Switch to English">
+            EN
+          </button>
+          <button
+            type="button"
+            data-lang="ru"
+            aria-label="Переключить на русский"
+          >
+            RU
+          </button>
+          <button type="button" data-lang="fi" aria-label="Vaihda suomeksi">
+            FI
+          </button>
         </div>
-        <button class="theme-toggle" aria-label="Toggle Theme">🌗</button>
+        <button type="button" class="theme-toggle" aria-label="Toggle Theme">
+          🌗
+        </button>
       </nav>
 
       <button
@@ -156,8 +169,8 @@
               applications.
             </h1>
             <p class="hero-status" data-i18n="hero_status">
-              Software development student at Business College Helsinki. Open
-              to junior full-stack and backend roles.
+              Software development student at Business College Helsinki. Open to
+              junior full-stack and backend roles.
             </p>
             <div class="hero-actions">
               <a
@@ -192,8 +205,8 @@
                 built a strong foundation in C, algorithms, and systems
                 thinking. I am currently doing an internship on EllarionTales,
                 mainly on backend business logic, run-availability rules,
-                registration flow validation, automated tests, and CI/tooling.
-                I enjoy turning complex flows into stable, testable web
+                registration flow validation, automated tests, and CI/tooling. I
+                enjoy turning complex flows into stable, testable web
                 applications that are easy to use and straightforward to
                 maintain.
               </p>
@@ -220,9 +233,7 @@
           class="current-work-section"
           aria-labelledby="current-work-title"
         >
-          <h2 id="current-work-title" data-i18n="current_work">
-            Current Work
-          </h2>
+          <h2 id="current-work-title" data-i18n="current_work">Current Work</h2>
 
           <article class="project-card current-work-card">
             <p class="project-kicker" data-i18n="current_work_label">
@@ -244,8 +255,8 @@
             <p class="current-work-intro" data-i18n="current_work_intro">
               A private internship project for a LARP registration flow. I
               mainly work on the backend, where run availability, character
-              group space, and premium handling are decided from stored data
-              and capacity rules.
+              group space, and premium handling are decided from stored data and
+              capacity rules.
             </p>
 
             <ul class="current-work-points">
@@ -263,7 +274,7 @@
               </li>
             </ul>
 
-            <ul class="project-tags current-work-tags" aria-label="Technologies">
+            <ul class="project-tags current-work-tags">
               <li>Node.js</li>
               <li>Express</li>
               <li>PostgreSQL</li>
@@ -280,8 +291,8 @@
         >
           <h2 id="projects-title" data-i18n="projects">Selected Projects</h2>
 
-          <div class="projects-grid" role="list">
-            <article class="project-card" role="listitem">
+          <ul class="projects-grid">
+            <li class="project-card">
               <div class="project-preview project-preview-bloglist">
                 <img
                   class="project-preview-image"
@@ -296,17 +307,17 @@
               </p>
               <h3 data-project-field="title">Bloglist</h3>
               <p data-project-field="description">
-                Featured app from my FullStack Open coursework. Bloglist pairs
-                a React frontend with a Node/Express API and lets logged-in
-                users create posts, like and comment on blogs, and delete
-                their own entries. The repo also includes persisted auth,
-                Redux state, and test coverage.
+                Featured app from my FullStack Open coursework. Bloglist pairs a
+                React frontend with a Node/Express API and lets logged-in users
+                create posts, like and comment on blogs, and delete their own
+                entries. The repo also includes persisted auth, Redux state, and
+                test coverage.
               </p>
               <p class="project-note" data-project-field="loginNote">
                 Demo login: demo / demopass
               </p>
 
-              <ul class="project-tags" aria-label="Technologies">
+              <ul class="project-tags">
                 <li>React</li>
                 <li>Redux</li>
                 <li>React Router</li>
@@ -339,9 +350,9 @@
                   >
                 </a>
               </div>
-            </article>
+            </li>
 
-            <article class="project-card" role="listitem">
+            <li class="project-card">
               <div class="project-preview project-preview-hr">
                 <img
                   class="project-preview-image"
@@ -357,13 +368,13 @@
               <h3 data-project-field="title">HR App</h3>
               <p data-project-field="description">
                 An employee-management app with a React/Vite frontend, Axios
-                data fetching, and a JSON Server backend deployed on Render.
-                It supports browsing employees, adding and editing records,
-                and showing probation and anniversary reminders in a simple
-                admin UI.
+                data fetching, and a JSON Server backend deployed on Render. It
+                supports browsing employees, adding and editing records, and
+                showing probation and anniversary reminders in a simple admin
+                UI.
               </p>
 
-              <ul class="project-tags" aria-label="Technologies">
+              <ul class="project-tags">
                 <li>React</li>
                 <li>Vite</li>
                 <li>React Router</li>
@@ -396,8 +407,8 @@
                   >
                 </a>
               </div>
-            </article>
-          </div>
+            </li>
+          </ul>
         </section>
       </main>
 
@@ -411,7 +422,6 @@
             <a
               class="hero-link hero-link-primary"
               href="mailto:maria8link@gmail.com"
-              aria-label="Email maria8link@gmail.com"
             >
               <span data-i18n="contact_email">Email</span>
             </a>
@@ -445,11 +455,11 @@
             are quick links.
           </p>
           <p class="footer-meta" data-i18n="footer_meta">
-            © 2026 Maria Link · Built with HTML, CSS & JavaScript.
+            © 2026 Maria Link · Built with HTML, CSS &amp; JavaScript.
           </p>
         </section>
       </footer>
-      <button id="toTop" aria-label="Back to top">↑</button>
+      <button id="toTop" type="button" aria-label="Back to top">↑</button>
     </div>
   </body>
 </html>

@@ -88,7 +88,11 @@ document.addEventListener("click", (event) => {
   const isClickInsideNav = nav.contains(event.target);
   const isClickOnBurger = burgerBtn.contains(event.target);
 
-  if (!isClickInsideNav && !isClickOnBurger && nav.classList.contains("active")) {
+  if (
+    !isClickInsideNav &&
+    !isClickOnBurger &&
+    nav.classList.contains("active")
+  ) {
     closeNav();
   }
 });

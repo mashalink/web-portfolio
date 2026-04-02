@@ -4,9 +4,7 @@
       "numberOfRuns": 1,
       "startServerCommand": "python3 -m http.server 4173 --directory .",
       "startServerReadyPattern": "Serving HTTP on",
-      "url": [
-        "http://127.0.0.1:4173/"
-      ],
+      "url": ["http://127.0.0.1:4173/"],
       "settings": {
         "preset": "desktop",
         "chromeFlags": "--headless --no-sandbox --disable-gpu"

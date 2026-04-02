@@ -55,6 +55,7 @@ It checks:
 
 - JavaScript syntax with `node --check`
 - JavaScript linting with ESLint
+- formatting with Prettier
 - HTML structure with `html-validate`
 - local links, images, and key section ids in `index.html`
 - Lighthouse scores for performance, accessibility, best practices, and SEO

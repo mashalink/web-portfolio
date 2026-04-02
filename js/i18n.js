@@ -23,7 +23,8 @@ export const translations = {
       "Registration flow validation and transactional save behavior",
     current_work_point_3:
       "Character-group assignment and premium fallback cases",
-    current_work_point_4: "Tests, CI, and tooling updates that keep the backend stable",
+    current_work_point_4:
+      "Tests, CI, and tooling updates that keep the backend stable",
     hero_cta_cv: "Download CV",
     hero_cta_linkedin: "LinkedIn",
     opens_new_tab: "(opens in a new tab)",
@@ -95,8 +96,7 @@ export const translations = {
       "Backend-logiikka pelisessioiden saatavuuteen ja tasapainosääntöihin",
     current_work_point_2:
       "Rekisteröintivirran validointi ja transaktiomainen tallennus",
-    current_work_point_3:
-      "Hahmoryhmien jako ja premium-varasääntö",
+    current_work_point_3: "Hahmoryhmien jako ja premium-varasääntö",
     current_work_point_4:
       "Testit, CI ja tooling-päivitykset, jotka pitävät backendin vakaana",
     hero_cta_cv: "Lataa CV",
@@ -108,7 +108,8 @@ export const translations = {
     contact_email: "Sähköposti",
     contact_linkedin: "LinkedIn",
     contact_github: "GitHub",
-    footer_meta: "© 2026 Maria Link · Tehty HTML:llä, CSS:llä ja JavaScriptillä.",
+    footer_meta:
+      "© 2026 Maria Link · Tehty HTML:llä, CSS:llä ja JavaScriptillä.",
   },
 };
 

@@ -78,6 +78,9 @@
   gap: 2rem;
   width: min(100%, var(--content-max-width));
   margin-inline: auto;
+  list-style: none;
+  padding: 0;
+  margin-block: 0;
 }
 
 .project-card {
@@ -89,7 +92,9 @@
   border-radius: 12px;
   padding: 2rem;
   box-shadow: var(--card-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .project-card:hover {
